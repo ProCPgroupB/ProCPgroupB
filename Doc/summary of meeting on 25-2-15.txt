@@ -1,0 +1,40 @@
+working github
+
+1- as soon as we start it, 
+we dont have bychle only people
+3-duration is constant but can be customized.
+there should be a button to start simulation, 
+for pedestrain automatic
+the same for pedestrain and cars
+wana save the trafic , 
+simulate the result, trafic lights go on and off,
+what happens if the duration changes, 
+to find the optimal setting , (time duration)
+how many cars driving?
+to be able to specify the number of car, 
+to save the whole design and settings , it would be nice to save
+the situation.
+change the english grammer of intro.
+current situation , there is many accident
+no software, for trafic light
+no implementation
+project product to be edited
+in deliverables description how it works, meaning of classes
+uml, 
+project plan is not really a delivarable
+have manual and demo and software
+no support in non delivarable
+time: it is about check the ec and how many hours to work
+constraint : using c sharp
+the risk is outside ur control, crash of app is not a risk
+u loose ur work for example.
+promise too much to client but u can not fullfill it.
+we are not professional. 
+what will be doing if happens
+runnig out of time is a risk.
+we can use our own source , not on sharepoint if we like.
+using good quality software , regular testing 
+every chapter should have a number ,page number , a good layout.
+
+next time, more questions, better layout, user requirement, 
+and we will recieve template for agenda
