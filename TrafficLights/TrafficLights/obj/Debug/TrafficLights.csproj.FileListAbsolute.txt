@@ -1,0 +1,2 @@
+D:\School\Block 7\PROC\Project\TrafficLights\TrafficLights\bin\Debug\TrafficLights.exe.config
+D:\School\Block 7\PROC\CLASS DIAGRAM\TrafficLights\TrafficLights\bin\Debug\TrafficLights.exe.config
