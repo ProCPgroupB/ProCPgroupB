@@ -1,0 +1,2 @@
+D:\School\Block 7\PROC\Project\TrafficLights\TrafficLights\bin\Debug\TrafficLights.exe.config
+C:\Users\Ngabo\Desktop\My Staff\New School\Second year\Third Period\traffic light\TrafficLights\TrafficLights\bin\Debug\TrafficLights.exe.config
