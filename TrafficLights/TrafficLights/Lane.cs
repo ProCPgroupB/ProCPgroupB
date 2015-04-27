@@ -31,6 +31,9 @@ namespace TrafficLights
         /// </summary>
         private EnumDirection direction;
 
+        
+       
+
         // ------------------------- Constructor -------------------------
 
         /// <summary>
@@ -51,7 +54,8 @@ namespace TrafficLights
         /// </summary>
         public void GeneretaPath()
         {
-
+            paths = new List<Path>();
+           
         }
 
         /// <summary>
@@ -61,6 +65,16 @@ namespace TrafficLights
         /// <param name="pathID"></param>
         public void AddCarToLane(Car c, int pathID)
         {
+            foreach (Path mypath in paths)
+            {
+                if (mypath.pathid == pathID)
+                {
+                    mypath.AddCarToPath(c);
+                   
+                }
+            }
+           
+           
 
         }
 
@@ -71,7 +85,13 @@ namespace TrafficLights
         /// <param name="pathID"></param>
         public void AddPedestrianToLane(Pedestrian p, int pathID)
         {
-
+            foreach (Path mypath in paths)
+            {
+                if (mypath.pathid == pathID)
+                {
+                    mypath.AddPedestrianToPath(p);
+                }
+            }
         }
 
         /// <summary>
@@ -82,7 +102,17 @@ namespace TrafficLights
         /// <returns></returns>
         public bool RemoveCarFromLane(Car c, int pathID)
         {
+            foreach (Path mypath in paths)
+            {
+                if (mypath.pathid == pathID)
+                {
+                    mypath.RemoveCar(c);
+                    return true;
+                }
+            }
             return false;
+            
+            
         }
 
         /// <summary>
@@ -93,6 +123,15 @@ namespace TrafficLights
         /// <returns></returns>
         public bool RemovePedestrianFromLane(Pedestrian p, int pathID)
         {
+            foreach (Path mypath in paths)
+            {
+                if (mypath.pathid == pathID)
+                {
+                    mypath.RemovePedestrian(p);
+                    return true;
+                }               
+                  
+            }
             return false;
         }
     }

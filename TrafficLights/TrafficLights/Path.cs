@@ -32,13 +32,16 @@ namespace TrafficLights
         /// </summary>
         private TrafficLight trafficLight;
 
+        public int pathid;
+
         // ------------------------- Constructor -------------------------
         public Path(string type, Point[] p, TrafficLight tl)
         {
             points = p;
-            laneCars = new List<Car>();
+            //laneCars = new List<Car>();
             pedestrians = new List<Pedestrian>();
             trafficLight = tl;
+            
         }
 
         // --------------------------- Methods ---------------------------
@@ -54,7 +57,12 @@ namespace TrafficLights
         /// <param name="indexLane">index of the lane</param>
         public bool AddCarToPath(Car car, int indexLane)
         {
-            return false;
+            if (pathid == indexLane)
+            {
+                cars.Add(car);
+                return true;
+            }
+            else return false;
         }
         /// <summary>
         /// Add pedestrian object to the path
@@ -62,20 +70,31 @@ namespace TrafficLights
         /// <param name="p">pedestrian object to add</param>
         public bool AddPedestrianToPath(Pedestrian p)
         {
-            return false;
+            pedestrians.Add(p);
+            return true;
         }
         public bool RemoveCar(Car c)
         {
-            return false;
+            cars.Remove(c);
+            return true;
         }
+
         public bool RemovePedestrian(Pedestrian p)
         {
-            return false;
+            pedestrians.Remove(p);
+            return true;
         }
+
         public void ShowPath()
         {
 
         }
 
+
+
+        internal void AddCarToPath(Car c)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
