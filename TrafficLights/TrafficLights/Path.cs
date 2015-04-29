@@ -18,6 +18,16 @@ namespace TrafficLights
         private Point[] points;
 
         /// <summary>
+        /// to draw path we use graphics
+        /// </summary>
+        Graphics gps;
+
+        /// <summary>
+        /// tpye of street
+        /// </summary>
+        private string typeofstreet;
+
+        /// <summary>
         /// a list of cars in the lane
         /// </summary>
         private List<Car> cars;
@@ -32,21 +42,31 @@ namespace TrafficLights
         /// </summary>
         private TrafficLight trafficLight;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public int pathid;
 
         // ------------------------- Constructor -------------------------
-        public Path(string type, Point[] p, TrafficLight tl)
+        public Path(string type, Point[] p, TrafficLight tl,int pathid)
         {
-            points = p;
-            //laneCars = new List<Car>();
+            typeofstreet = type;
+            points = p;            
             pedestrians = new List<Pedestrian>();
             trafficLight = tl;
+            this.pathid = pathid;
+
             
         }
 
         // --------------------------- Methods ---------------------------
-        public bool AddTrafficLightToPath(TrafficLight tf)
+        public bool AddTrafficLightToPath(TrafficLight tf,int indexLane)
         {
+            if (pathid == indexLane)
+            {
+                trafficLight = tf;
+                return true;
+            }
             return false;
         }
 
@@ -85,12 +105,16 @@ namespace TrafficLights
             return true;
         }
 
-        public void ShowPath()
+        
+        public void ShowPath(Graphics grps,Color clr,ref int x1,ref int  y1,ref int x2,ref int y2)
         {
-
+            Pen p = new Pen(clr);
+            grps.DrawRectangle(p,x1,y1,x2,y2);
+            gps.Dispose();
+           
         }
 
-
+        
 
         internal void AddCarToPath(Car c)
         {

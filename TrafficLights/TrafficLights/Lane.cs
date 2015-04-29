@@ -31,7 +31,7 @@ namespace TrafficLights
         /// </summary>
         private EnumDirection direction;
 
-        
+        Point[] points;
        
 
         // ------------------------- Constructor -------------------------
@@ -52,10 +52,12 @@ namespace TrafficLights
         /// <summary>
         /// Generate a list of path that belongs in the lane
         /// </summary>
-        public void GeneretaPath()
+        public void GeneretaPath(string type,Point [] p,TrafficLight tl,int pathiid)
         {
-            paths = new List<Path>();
            
+            paths = new List<Path>();
+            paths.Add(new Path(type, p,tl,pathiid));
+            //paths.Add(new Path("pedestrian", 2, ));
         }
 
         /// <summary>
