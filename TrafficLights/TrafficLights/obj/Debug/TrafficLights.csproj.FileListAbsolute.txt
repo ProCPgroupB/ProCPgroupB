@@ -2,8 +2,19 @@ D:\School\Block 7\PROC\Project\TrafficLights\TrafficLights\bin\Debug\TrafficLigh
 D:\School\Block 7\PROC\CLASS DIAGRAM\TrafficLights\TrafficLights\bin\Debug\TrafficLights.exe.config
 C:\Users\Ngabo\Desktop\My Staff\New School\Second year\Third Period\traffic light\Raditya2\TrafficLights\TrafficLights\bin\Debug\TrafficLights.exe.config
 D:\School\Block 8\PROCP\TrafficLights\TrafficLights\bin\Debug\TrafficLights.exe.config
+<<<<<<< HEAD
 F:\fontys files\Second Year\ProjCP\ProCPgroupB\TrafficLights\TrafficLights\bin\Debug\TrafficLights.exe.config
 F:\fontys files\Second Year\ProjCP\ProCPgroupB\TrafficLights\TrafficLights\obj\Debug\TrafficLights.csprojResolveAssemblyReference.cache
 F:\fontys files\Second Year\ProjCP\ProCPgroupB\TrafficLights\TrafficLights\obj\Debug\TrafficLights.MainForm.resources
 F:\fontys files\Second Year\ProjCP\ProCPgroupB\TrafficLights\TrafficLights\obj\Debug\TrafficLights.Properties.Resources.resources
 F:\fontys files\Second Year\ProjCP\ProCPgroupB\TrafficLights\TrafficLights\obj\Debug\TrafficLights.csproj.GenerateResource.Cache
+=======
+C:\Users\Ishant\Desktop\ProCPgroupB\TrafficLights\TrafficLights\obj\Debug\TrafficLights.MainForm.resources
+C:\Users\Ishant\Desktop\ProCPgroupB\TrafficLights\TrafficLights\obj\Debug\TrafficLights.Properties.Resources.resources
+C:\Users\Ishant\Desktop\ProCPgroupB\TrafficLights\TrafficLights\obj\Debug\TrafficLights.csproj.GenerateResource.Cache
+C:\Users\Ishant\Desktop\ProCPgroupB\TrafficLights\TrafficLights\bin\Debug\TrafficLights.exe.config
+C:\Users\Ishant\Desktop\ProCPgroupB\TrafficLights\TrafficLights\bin\Debug\TrafficLights.exe
+C:\Users\Ishant\Desktop\ProCPgroupB\TrafficLights\TrafficLights\bin\Debug\TrafficLights.pdb
+C:\Users\Ishant\Desktop\ProCPgroupB\TrafficLights\TrafficLights\obj\Debug\TrafficLights.exe
+C:\Users\Ishant\Desktop\ProCPgroupB\TrafficLights\TrafficLights\obj\Debug\TrafficLights.pdb
+>>>>>>> origin/master
