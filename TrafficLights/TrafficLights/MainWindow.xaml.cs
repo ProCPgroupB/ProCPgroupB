@@ -235,17 +235,28 @@ namespace TrafficLights
         private void openBtn_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Multiselect = true;
+            openFileDialog.Filter = "Text (*.txt)|*.txt";
             if (openFileDialog.ShowDialog() == true)
             {
-                
+                Sim.loadFile(openFileDialog.FileName);
             }
         }
 
         private void newBtn_Click(object sender, RoutedEventArgs e)
         {
-            Sim.Control.RemoveAll();
-            canvasGrid.Children.Clear();
-            generateGrid();
+            MessageBoxResult mbr = MessageBox.Show("Your simulation is not saved yet! Do you want to save it?", "Warning!!!!", MessageBoxButton.YesNoCancel);
+            if (mbr.ToString() == "Yes")
+            {
+                
+            }
+            else if (mbr.ToString() == "No")
+            {
+                Sim.Control.RemoveAll();
+                canvasGrid.Children.Clear();
+                generateGrid();
+            }
+
         }
 
         private void saveBtn_Click(object sender, RoutedEventArgs e)
@@ -256,6 +267,8 @@ namespace TrafficLights
 
             }
         }
+
+
 
 
 

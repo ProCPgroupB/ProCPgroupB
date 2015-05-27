@@ -91,13 +91,9 @@
                             </StackPanel>
                             
                         </MenuItem.Header>
-                        <MenuItem Header="_New" Command="New">
-                            <MenuItem.Icon>
-                                <Image Source="Resources/new.png" />
-                            </MenuItem.Icon>
-                        </MenuItem>
+                        <MenuItem Header="_New" Click="newBtn_Click"/>
                         <Separator />
-                        <MenuItem Header="_Open" />
+                        <MenuItem Header="_Open" Click="openBtn_Click"/>
                         <Separator />
                         <MenuItem Header="_Save" />
                         <MenuItem Header="_Save As" />

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
 
 namespace TrafficLights
 {
@@ -50,7 +53,17 @@ namespace TrafficLights
         /// <returns></returns>
         public Simulation loadFile(string path)
         {
-            return null;
+            FileStream fs = null;
+            BinaryFormatter bf = null;
+            Simulation s = null;
+
+            fs = new FileStream(path, FileMode.Open, FileAccess.Read);
+            bf = new BinaryFormatter();
+            while (fs.Position < fs.Length)
+            {
+                s = (Simulation)(bf.Deserialize(fs));
+            }
+            return s;
         }
 
         /// <summary>
