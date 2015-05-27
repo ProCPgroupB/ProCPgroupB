@@ -16,16 +16,23 @@ namespace TrafficLights
     {
         // -------------------------- Attributes --------------------------
 
+        List<Pedestrian> ListPedestrian = new List<Pedestrian>();
+
         /// <summary>
         /// list of lanes in the crossing
         /// </summary>
         List<Lane> lanes;
 
         /// <summary>
-        /// type of the crossing
+        /// crossing ID is the crossing is (not location)
         /// </summary>
-        private int crossingType;
+        private int crossing_ID;
 
+        /// <summary>
+        /// type of the crossing // change to enum to determine the crossing
+        /// </summary>
+        // private int crossingType;
+        private EnumSelectedCrossing crossingType;
         /// <summary>
         /// position of the crossing
         /// </summary>
@@ -59,34 +66,52 @@ namespace TrafficLights
         /// <param name="type">type of the crossing</param>
         /// <param name="row">row location on the grid</param>
         /// <param name="col">col location on the grid</param>
-        public Crossing(int type, int row, int col)
+        public Crossing(EnumSelectedCrossing type, int row, int col)
         {
-            crossingType = type;
-            crossingPosition = new Point(row, col);
+            this.crossingType = type;
+            this.crossingPosition = new Point(row, col);
+            //this.crossing_ID = cross_ID;
         }
 
         // --------------------------- Methods ---------------------------
 
+        ///// <summary>
+        ///// add a new car to the crossing based on the lane direction
+        ///// </summary>
+        ///// <param name="direction"></param>
+        ///// <param name="c"></param>
+        //public void AddCar(EnumLaneDirection direction, Car c)
+        //{
+
+       // //}
+
+       // /// <summary>
+       // ///  change crossing case based on time in the simulation
+       // /// </summary>
+       // /// <param name="time">timer</param>
+       // public void ChangeCase(int time){}
+
+       // /// <summary>
+       // /// get traffic light states in the crossing
+       // /// </summary>
+       // /// <returns>array of traffic light states</returns>
+       // public TrafficLight[] getState() { return null; }
+
         /// <summary>
-        /// add a new car to the crossing based on the lane direction
+        /// Add pedestrian object to the Crossing
         /// </summary>
-        /// <param name="direction"></param>
-        /// <param name="c"></param>
-        public void AddCar(EnumLaneDirection direction, Car c)
+        /// <param name="p"></param>
+        /// <param name="pathID"></param>
+        public void AddPedestrianToLane(int nr, Pedestrian p)
         {
+            if (crossingType == EnumSelectedCrossing.withPedestrian)
+            {
+                for (int i = 0; i < nr; i++)
+                {
+                    ListPedestrian.Add(p);
+                }
+            }
 
         }
-
-        /// <summary>
-        ///  change crossing case based on time in the simulation
-        /// </summary>
-        /// <param name="time">timer</param>
-        public void ChangeCase(int time){}
-
-        /// <summary>
-        /// get traffic light states in the crossing
-        /// </summary>
-        /// <returns>array of traffic light states</returns>
-        public TrafficLight[] getState() { return null; }
     }
 }

@@ -32,13 +32,13 @@ namespace TrafficLights
         /// <param name="indexlane"></param>
         /// <param name="color"></param>
         /// <param name="coordinates"></param>
-        public Pedestrian(int widht,int height,int indexlane,Brush color,PointF coordinates)
+        public Pedestrian(int indexlane)
         {
-            this.PedestrianWidth = widht;
-            this.PedestrianHeight = height;
+            this.PedestrianWidth = 2;
+            this.PedestrianHeight = 4;
             this.IndexLane = indexlane;
-            this.PedestrianColor = color;
-            this.PedestrianCoordinates = coordinates;
+            this.PedestrianColor = Brushes.Beige;
+            this.PedestrianCoordinates =new PointF(0,0);
             this.IsMoving = false;
         }
 

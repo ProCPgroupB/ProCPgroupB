@@ -29,7 +29,8 @@ namespace TrafficLights
         /// <param name="type">type of the crossing</param>
         /// <param name="row">row location on the grid</param>
         /// <param name="col">col location on the grid</param>
-        public WithPedestrian(int type, int row, int col) : base(type, row, col)
+        public WithPedestrian(EnumSelectedCrossing type, int row, int col)
+            : base(type, row, col)
         {
 
         }
@@ -48,7 +49,7 @@ namespace TrafficLights
         /// get traffic light states in the crossing
         /// </summary>
         /// <returns>array of traffic light states</returns>
-        public override TrafficLight[] getState() { return null; }
+       // public override TrafficLight[] getState() { return null; }
 
 
         /// <summary>
@@ -56,9 +57,9 @@ namespace TrafficLights
         /// </summary>
         /// <param name="p"></param>
         /// <param name="indexLane "></param>
-        public bool AddPedestrian(Pedestrian p, int indexLane)
-        {
-        }
+        //public bool AddPedestrian(Pedestrian p, int indexLane)
+        //{
+        //}
 
     }
 }

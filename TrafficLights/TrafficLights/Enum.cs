@@ -36,7 +36,7 @@ namespace TrafficLights
     /// <summary>
     /// Directions of lane 
     /// </summary>
-    enum EnumLaneDirection
+    enum EnumPathDirection
     {
         North2East,
         North2South,

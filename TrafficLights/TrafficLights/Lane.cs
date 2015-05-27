@@ -15,11 +15,22 @@ namespace TrafficLights
     class Lane
     {
         // -------------------------- Attributes -------------------------
-        
+
+        public List<Car> ListCar;
+
+
         /// <summary>
         /// the paths point of the lane
         /// </summary>
         private List<Path> paths;
+
+        //public int GetNumberOfCars()
+        //{
+        //    foreach (Car c in ListOfCars)
+        //    {
+                
+        //    }
+        //}
 
         /// <summary>
         /// the capacity of cars/pedestrian of the lane
@@ -31,8 +42,9 @@ namespace TrafficLights
         /// </summary>
         private EnumDirection direction;
 
-        Point[] points;
-       
+        //------------------------Properties-------------------------------//
+
+        public int Lane_ID { get; set; }
 
         // ------------------------- Constructor -------------------------
 
@@ -45,6 +57,7 @@ namespace TrafficLights
         {
             direction = dir;
             this.capacity = capacity;
+            this.ListCar = new List<Car>(5);
         }
 
         // --------------------------- Methods ---------------------------
@@ -52,32 +65,22 @@ namespace TrafficLights
         /// <summary>
         /// Generate a list of path that belongs in the lane
         /// </summary>
-        public void GeneretaPath(string type,Point [] p,TrafficLight tl,int pathiid)
+        public void GeneretaPath()
         {
-           
-            paths = new List<Path>();
-            paths.Add(new Path(type, p,tl,pathiid));
-            //paths.Add(new Path("pedestrian", 2, ));
+
         }
 
         /// <summary>
         /// Add car object to the lane
         /// </summary>
         /// <param name="c"></param>
-        /// <param name="pathID"></param>
-        public void AddCarToLane(Car c, int pathID)
+        /// <param name="lane_ID"></param>
+        public void AddCarToLane(int nr)
         {
-            foreach (Path mypath in paths)
+            for (int i = 0; i < nr; i++)
             {
-                if (mypath.pathid == pathID)
-                {
-                    mypath.AddCarToPath(c);
-                   
-                }
+                ListCar.Add(new Car(this.Lane_ID));
             }
-           
-           
-
         }
 
         /// <summary>
@@ -85,16 +88,10 @@ namespace TrafficLights
         /// </summary>
         /// <param name="p"></param>
         /// <param name="pathID"></param>
-        public void AddPedestrianToLane(Pedestrian p, int pathID)
-        {
-            foreach (Path mypath in paths)
-            {
-                if (mypath.pathid == pathID)
-                {
-                    mypath.AddPedestrianToPath(p);
-                }
-            }
-        }
+        //public void AddPedestrianToLane(int nr)
+        //{
+
+        //}
 
         /// <summary>
         /// Remove car object from the lane
@@ -104,17 +101,7 @@ namespace TrafficLights
         /// <returns></returns>
         public bool RemoveCarFromLane(Car c, int pathID)
         {
-            foreach (Path mypath in paths)
-            {
-                if (mypath.pathid == pathID)
-                {
-                    mypath.RemoveCar(c);
-                    return true;
-                }
-            }
             return false;
-            
-            
         }
 
         /// <summary>
@@ -125,15 +112,6 @@ namespace TrafficLights
         /// <returns></returns>
         public bool RemovePedestrianFromLane(Pedestrian p, int pathID)
         {
-            foreach (Path mypath in paths)
-            {
-                if (mypath.pathid == pathID)
-                {
-                    mypath.RemovePedestrian(p);
-                    return true;
-                }               
-                  
-            }
             return false;
         }
     }

@@ -36,7 +36,7 @@ namespace TrafficLights
         /// <param name="indexlane"></param>
         /// <param name="color"></param>
         /// <param name="coordinates"></param>
-        public Car(int indexlane, Brush color)
+        public Car(int indexlane)
         {
             //this.CarWidth = width;
             //this.CarHeight = heught;
@@ -47,7 +47,7 @@ namespace TrafficLights
             this.CarWidth = 4;
             this.CarHeight = 4;
             this.IndexLane = indexlane;
-            this.CarColor = color;
+            this.CarColor = Brushes.Blue;
             this.CarCoordinates = new PointF(0,0);
             this.IsMoving = false;
         }

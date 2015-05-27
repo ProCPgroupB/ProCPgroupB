@@ -11,7 +11,7 @@ namespace TrafficLights
         // -------------------------- Attributes --------------------------
         private string fileName;
         private string filePath;
-        private Setting setting;
+        //private Setting setting;
         private TrafficControl control;
 
         // ------------------------- Constructor -------------------------
@@ -27,6 +27,12 @@ namespace TrafficLights
         }
 
         // --------------------------- Methods ---------------------------
+
+        public TrafficControl Control
+        {
+            get { return control; }
+            set { control = value; }
+        }
 
         /// <summary>
         /// save the simulation to the given path
@@ -55,8 +61,9 @@ namespace TrafficLights
         /// <summary>
         /// Start the simulation
         /// </summary>
-        public void PlaySimulation()
+        public bool PlaySimulation()
         {
+            return true;
         }
 
         /// <summary>
