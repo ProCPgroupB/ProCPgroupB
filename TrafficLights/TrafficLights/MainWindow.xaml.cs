@@ -16,6 +16,7 @@ using Microsoft.Win32;
 
 namespace TrafficLights
 {
+    [Serializable]
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -169,7 +170,8 @@ namespace TrafficLights
             {
                 if (Sim.Control.GetCrossing(row, col) != null)
                 {
-                    ZoomWindow zw = new ZoomWindow();
+                    Crossing SelectedCrossing = Sim.Control.GetCrossing(row, col);
+                    ZoomWindow zw = new ZoomWindow(Sim, SelectedCrossing);
                     zw.Show();
                 }
             }
@@ -206,7 +208,8 @@ namespace TrafficLights
         {
             if (Sim.Control.GetCrossing(row, col) != null)
             {
-                ZoomWindow zw = new ZoomWindow();
+                Crossing SelectedCrossing = Sim.Control.GetCrossing(row, col);
+                ZoomWindow zw = new ZoomWindow(Sim, SelectedCrossing);
                 zw.Show();
             }
         }
@@ -235,11 +238,49 @@ namespace TrafficLights
         private void openBtn_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Multiselect = true;
-            openFileDialog.Filter = "Text (*.txt)|*.txt";
+            openFileDialog.Title = "Load Traffic Simulation Files";
+            openFileDialog.CheckPathExists = true;
+            openFileDialog.DefaultExt = ".ts";
+            openFileDialog.Filter = "Traffic Simulation files (*.ts)|*.ts*";
+
             if (openFileDialog.ShowDialog() == true)
             {
-                Sim.loadFile(openFileDialog.FileName);
+                Sim = Sim.loadFile(openFileDialog.FileName);
+                canvasGrid.Children.Clear();
+                generateGrid();
+
+                ImageSource image;
+                Image i = new Image();
+                for (int x = 0; x < Sim.Control.GetAllCrossing.GetLength(0); x++)
+                {
+                    for (int y = 0; y < Sim.Control.GetAllCrossing.GetLength(1); y++)
+                    {
+                        if (Sim.Control.GetCrossing(x, y) != null)
+                        {
+                            if (Sim.Control.GetCrossing(x, y).CrossingType == EnumSelectedCrossing.withoutPedestrian)
+                            {
+                                image = new BitmapImage(new Uri("/TrafficLights;component/Resources/map1.png", UriKind.Relative));
+                                i = new Image() { Width = 200, Height = 200, Source = image };
+                                i.Uid = x.ToString() + y.ToString();
+
+                            }
+                            if (Sim.Control.GetCrossing(x, y).CrossingType == EnumSelectedCrossing.withPedestrian)
+                            {
+                                image = new BitmapImage(new Uri("/TrafficLights;component/Resources/map2.png", UriKind.Relative));
+                                i = new Image() { Width = 200, Height = 200, Source = image };
+                                i.Uid = x.ToString() + y.ToString();
+                            }
+                            
+                            Canvas.SetLeft(i, y * 200);
+                            Canvas.SetTop(i, x * 200);
+                            canvasGrid.Children.Add(i);
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                }
             }
         }
 
@@ -248,7 +289,7 @@ namespace TrafficLights
             MessageBoxResult mbr = MessageBox.Show("Your simulation is not saved yet! Do you want to save it?", "Warning!!!!", MessageBoxButton.YesNoCancel);
             if (mbr.ToString() == "Yes")
             {
-                
+                saveBtn_Click(sender, e);
             }
             else if (mbr.ToString() == "No")
             {
@@ -256,19 +297,20 @@ namespace TrafficLights
                 canvasGrid.Children.Clear();
                 generateGrid();
             }
-
         }
 
         private void saveBtn_Click(object sender, RoutedEventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Save Simulation Files";
+            saveFileDialog.CheckPathExists = true;
+            saveFileDialog.DefaultExt = "ts";
+            saveFileDialog.Filter = "Traffic Simulation files (*.ts)|*.ts*";
             if (saveFileDialog.ShowDialog() == true)
             {
-
+                Sim.saveFile(saveFileDialog.FileName);
             }
         }
-
-
 
 
 

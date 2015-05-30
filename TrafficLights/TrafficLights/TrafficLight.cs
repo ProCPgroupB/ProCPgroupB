@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace TrafficLights
 {
-    class TrafficLight
+    [Serializable]
+    public class TrafficLight
     {
 
         // -------------------------- Attributes --------------------------/

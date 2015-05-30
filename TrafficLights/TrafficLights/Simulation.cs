@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
+using System.IO;
 
 namespace TrafficLights
 {
-    class Simulation
+    [Serializable]
+    public class Simulation
     {
         // -------------------------- Attributes --------------------------
         private string fileName;
@@ -27,6 +28,7 @@ namespace TrafficLights
         {
             this.filePath = pathFile;
             this.control = new TrafficControl();
+            this.fileName = filename;
         }
 
         // --------------------------- Methods ---------------------------
@@ -43,7 +45,28 @@ namespace TrafficLights
         /// <param name="path"></param>
         public void saveFile(string path)
         {
-
+            FileStream fs = null;
+            BinaryFormatter bf = null;
+            try
+            {
+                fs = new FileStream(path, FileMode.Create, FileAccess.Write);
+                bf = new BinaryFormatter();
+                bf.Serialize(fs, this);
+            }
+            catch (SerializationException SE)
+            {
+                //  MessageBox.Show("Unexpected error: " + SE.Message);
+            }
+            catch (IOException IO)
+            {
+                // MessageBox.Show("Unexpected error: " + IO.Message);
+            }
+            finally
+            {
+                if (fs != null) fs.Close();
+                //string filename = System.IO.Path.GetFileName(saveFileDialog1.FileName);
+                // this.Text = filename;
+            }
         }
 
         /// <summary>
@@ -61,7 +84,9 @@ namespace TrafficLights
             bf = new BinaryFormatter();
             while (fs.Position < fs.Length)
             {
+                //s = (Simulation)(bf.Deserialize(fs));
                 s = (Simulation)(bf.Deserialize(fs));
+
             }
             return s;
         }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace TrafficLights
 {
+    [Serializable]
     class StatisticCollector:TrafficControl
     {
 

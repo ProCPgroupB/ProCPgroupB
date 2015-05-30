@@ -8,25 +8,25 @@ using System.Drawing.Drawing2D;
 
 namespace TrafficLights
 {
-
+    [Serializable]
     /// <summary>
     /// This class create a crossing object. 
     /// </summary>
-    class Crossing
+    public class Crossing
     {
         // -------------------------- Attributes --------------------------
 
-        List<Pedestrian> ListPedestrian = new List<Pedestrian>();
+        private List<Pedestrian> ListPedestrian = new List<Pedestrian>();
 
         /// <summary>
         /// list of lanes in the crossing
         /// </summary>
-        List<Lane> lanes;
+        private List<Lane> lanes;
 
         /// <summary>
         /// crossing ID is the crossing is (not location)
         /// </summary>
-        private int crossing_ID;
+        private string crossing_ID;
 
         /// <summary>
         /// type of the crossing // change to enum to determine the crossing
@@ -66,15 +66,24 @@ namespace TrafficLights
         /// <param name="type">type of the crossing</param>
         /// <param name="row">row location on the grid</param>
         /// <param name="col">col location on the grid</param>
-        public Crossing(EnumSelectedCrossing type, int row, int col)
+        public Crossing(EnumSelectedCrossing type, int row, int col, string id)
         {
             this.crossingType = type;
             this.crossingPosition = new Point(row, col);
-            //this.crossing_ID = cross_ID;
+            this.crossing_ID = id;
         }
 
         // --------------------------- Methods ---------------------------
 
+        public string Crossing_ID {
+            get { return crossing_ID; }
+            set { crossing_ID = value; }
+        }
+
+        public EnumSelectedCrossing CrossingType {
+            get { return crossingType; }
+            set { crossingType = value; }
+        }
         ///// <summary>
         ///// add a new car to the crossing based on the lane direction
         ///// </summary>

@@ -6,25 +6,26 @@ using System.Threading.Tasks;
 
 namespace TrafficLights
 {
+    [Serializable]
     /// <summary>
     /// Trafic colors
     /// Red, Yellow, Green
     /// </summary>
-    enum EnumLights
+    public enum EnumLights
     {
         red, yellow, green
     }
     /// <summary>
     /// Direction
     /// </summary>
-    enum EnumDirection
+    public enum EnumDirection
     {
         North, East, South, West
     }
     /// <summary>
     /// Different cases according to the 
     /// </summary>
-    enum EnumCase
+    public enum EnumCase
     {
         case1,
         case2,
@@ -36,7 +37,7 @@ namespace TrafficLights
     /// <summary>
     /// Directions of lane 
     /// </summary>
-    enum EnumPathDirection
+    public enum EnumPathDirection
     {
         North2East,
         North2South,
@@ -53,7 +54,7 @@ namespace TrafficLights
 
     }
 
-    enum EnumSelectedCrossing
+    public enum EnumSelectedCrossing
     {
         withPedestrian,
         withoutPedestrian

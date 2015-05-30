@@ -8,6 +8,7 @@ using System.Drawing.Drawing2D;
 
 namespace TrafficLights
 {
+    [Serializable]
     /// <summary>
     /// 
     /// </summary>
@@ -21,8 +22,8 @@ namespace TrafficLights
         /// <param name="type">type of the crossing</param>
         /// <param name="row">row location on the grid</param>
         /// <param name="col">col location on the grid</param>
-        public WithoutPedestrian(EnumSelectedCrossing type, int row, int col)
-            : base(type, row, col)
+        public WithoutPedestrian(EnumSelectedCrossing type, int row, int col, string id)
+            : base(type, row, col, id)
         {
 
         }

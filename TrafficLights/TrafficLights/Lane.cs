@@ -8,11 +8,12 @@ using System.Drawing.Drawing2D;
 
 namespace TrafficLights
 {
+    [Serializable]
     /// <summary>
     /// this class create lane object. Lane is a part of crossing that have its own 
     /// traffic lights, car stream, and pedestrian stream. 
     /// </summary>
-    class Lane
+    public class Lane
     {
         // -------------------------- Attributes -------------------------
 

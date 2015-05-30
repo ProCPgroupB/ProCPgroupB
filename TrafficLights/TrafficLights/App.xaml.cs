@@ -23,5 +23,11 @@ namespace TrafficLights
             var window = (Window)((FrameworkElement)sender).TemplatedParent;
             window.WindowState = WindowState.Minimized;
         }
+
+        private void WindowBorderCustom_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            //if (e.ChangedButton == System.Windows.Input.MouseButton.Left)
+            //    this.DragMove();
+        }
     }
 }

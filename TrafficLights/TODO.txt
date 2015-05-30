@@ -10,8 +10,6 @@ MainForm
 -Path
 -Car
 -Pedestrian
-SettingForm
--Options
-ZoomForm
--Map	
+ZoomForm			
+-Map					+
 -Sidebar

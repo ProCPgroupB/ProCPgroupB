@@ -8,7 +8,8 @@ using System.Drawing.Drawing2D;
 
 namespace TrafficLights
 {
-    class Pedestrian
+    [Serializable]
+    public class Pedestrian
     {
         // -------------------------- Attributes --------------------------
         /// <summary>
