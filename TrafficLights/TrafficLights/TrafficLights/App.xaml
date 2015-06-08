@@ -1,0 +1,162 @@
+﻿<Application x:Class="TrafficLights.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+
+        <Style x:Key="MenuButtons" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                        BorderThickness="0" 
+                        Background="#1e8bc3">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FF26B0F7" TargetName="border">
+                                    
+                                </Setter>
+
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="WindowButton" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle">
+                <Setter.Value>
+                    <Style>
+                        <Setter Property="Control.Template">
+                            <Setter.Value>
+                                <ControlTemplate>
+                                    <Rectangle Margin="2" 
+        								SnapsToDevicePixels="True" 
+        								Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" 
+        								StrokeThickness="1" StrokeDashArray="1 2"/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="BorderBrush" Value="#FFFCFCFC"/>
+
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                            <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                           
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" TargetName="border" Value="0.80"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="Transparent"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#FF000000"/>
+                                <Setter Property="Opacity" TargetName="border" Value="0.20"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF2C628B"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" TargetName="border" Value="{x:Null}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="WindowCustomStyle" TargetType="{x:Type Window}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Window}">
+                        <Grid>
+                            <Border x:Name="MainBorder" BorderThickness="0" Background="#FF34495e" >
+                                <DockPanel LastChildFill="True">
+                                    <Border x:Name="PART_TITLEBAR" 
+        								Margin="0,0,0,0" Height="40" DockPanel.Dock="Top" BorderThickness="0 0 0 1" BorderBrush="#FF233240"
+        								Background="#FF233240">
+                                        <DockPanel>
+
+                                            <Image Margin="10 0 0 0" DockPanel.Dock="Left" Width="30" Height="30" Source="{TemplateBinding Icon}"/>
+
+
+                                            <Button x:Name="PART_CLOSE" DockPanel.Dock="Right" 
+        										VerticalAlignment="Center" Margin="5"
+        										Height="20" Width="30" 
+        										Background="#FF94090D"
+        										Style="{DynamicResource WindowButton}"
+        										Click="closeButton_Click"
+                                                    >
+                                                <Path Data="F1M54.0573,47.8776L38.1771,31.9974 54.0547,16.1198C55.7604,14.4141 55.7604,11.6511 54.0573,9.94531 52.3516,8.23962 49.5859,8.23962 47.8802,9.94531L32.0026,25.8229 16.1224,9.94531C14.4167,8.23962 11.6511,8.23962 9.94794,9.94531 8.24219,11.6511 8.24219,14.4141 9.94794,16.1198L25.8255,32 9.94794,47.8776C8.24219,49.5834 8.24219,52.3477 9.94794,54.0534 11.6511,55.7572 14.4167,55.7585 16.1224,54.0534L32.0026,38.1745 47.8802,54.0534C49.5859,55.7585 52.3516,55.7572 54.0573,54.0534 55.7604,52.3477 55.763,49.5834 54.0573,47.8776z" 
+        											Stretch="Uniform" Fill="#FFDAECFF" Width="8" Margin="0,0,0,0" />
+                                            </Button>
+                                            <Button x:Name="PART_MINIMIZE" 
+                                                    HorizontalAlignment="Center" 
+                                                    VerticalAlignment="Center" Margin="1"
+                                                    DockPanel.Dock="Right"
+                                                    Background="Transparent"
+                                                    Opacity="0.80"
+                                                    Height="20" Width="20" Style="{DynamicResource WindowButton}"
+                                                    Click="minimizeButton_Click"
+                                                     VerticalContentAlignment="Bottom">
+                                                <Button.Content>
+                                                    <Path Data="M0,20L53.333,20 53.333,8.888 0,8.888z" 
+                                                          Stretch="Uniform" Fill="#FFDAECFF" Width="10" Margin="0,0,0,5"></Path>
+                                                </Button.Content>
+                                            </Button>
+                                            <TextBlock Margin="0 0 10 0" VerticalAlignment="Center" HorizontalAlignment="Center"
+        										Foreground="#FFDAECFF" 
+        										Text="{TemplateBinding Title}" FontSize="16" />
+                                        </DockPanel>
+                                    </Border>
+
+                                    <AdornerDecorator DockPanel.Dock="Bottom">
+                                        <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}"/>
+                                    </AdornerDecorator>
+                                </DockPanel>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="WindowPopupCustomStyle" TargetType="{x:Type Window}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Window}">
+                        <Border x:Name="WindowBorderCustom" MouseDown="WindowBorderCustom_MouseDown" BorderBrush="Black" BorderThickness="5">
+                            <Border.Effect>
+                                <DropShadowEffect />
+                            </Border.Effect>
+                            <Grid>
+                            <Border x:Name="MainBorder"  BorderThickness="1" Background="#FF34495e" >
+                                <DockPanel LastChildFill="True">
+       
+
+                                    <AdornerDecorator DockPanel.Dock="Bottom">
+                                        <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}"/>
+                                    </AdornerDecorator>
+                                </DockPanel>
+                            </Border>
+                        </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+    </Application.Resources>
+</Application>
