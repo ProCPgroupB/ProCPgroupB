@@ -1404,7 +1404,7 @@ namespace TrafficLights
 
             tempCrossing = Sim.Control.GetCrossing(row, col);
             tempSender = sender;
-            editToolStripMenuItem_Click(sender,e);
+            editToolStripMenuItem_Click(sender, e);
         }
 
         private void A2_MouseDoubleClick(object sender, MouseEventArgs e)
