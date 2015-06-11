@@ -27,133 +27,156 @@ namespace TrafficLights
             : base(type, row, col)
         {
 
-            #region LaneCollections
-            //LaneCollections[0] = new Point[]{
-            //    new Point(260, 0),
-            //    new Point(260, 200),
-            //    new Point(240, 230),
-            //    new Point(203, 230),
-            //    new Point(200, 240),
-            //    new Point(20, 240),
-            //    new Point(0, 260)
-            //};
-            //LaneCollections[1] = new Point[]{
-            //    new Point(260,0),
-            //    new Point(300,60),
-            //    new Point(300,200),
-            //    new Point(240,400),
-            //    new Point(240,580),
-            //    new Point(260,600)
-            //};
-            //LaneCollections[2] = new Point[]{
-            //    new Point(260,0),
-            //        new Point(300,60),
-            //        new Point(300,200),
-            //        new Point(340,320),
-            //        new Point(400,360),
-            //        new Point(580,360),
-            //        new Point(600,340)
-            //};
-            //LaneCollections[3] = new Point[]{
-            //    new Point(600,260),
-            //        new Point(540,240),
-            //        new Point(400,240),
-            //        new Point(370,230),
-            //        new Point(360,200),
-            //        new Point(360,20),
-            //        new Point(340,0)
-            //};
-            //LaneCollections[4] = new Point[]{
-            //    new Point(600,260),
-            //        new Point(540,300),
-            //        new Point(400,300),
-            //        new Point(200,240),
-            //        new Point(20,240),
-            //        new Point(0,260)
-            //};
-            //LaneCollections[5] = new Point[]{
-            //   new Point(600,260),
-            //        new Point(540,300),
-            //        new Point(400,300),
-            //        new Point(280,340),
-            //        new Point(240,400),
-            //        new Point(240,580),
-            //        new Point(260,600)
-            //};
-            //LaneCollections[6] = new Point[]{
-            //    new Point(340,600),
-            //        new Point(360,540),
-            //        new Point(360,400),
-            //        new Point(370,370),
-            //        new Point(400,360),
-            //        new Point(580,360),
-            //        new Point(600,340)
-            //};
-            //LaneCollections[7] = new Point[]{
-            //    new Point(340,600),
-            //        new Point(300,540),
-            //        new Point(300,400),
-            //        new Point(360,200),
-            //        new Point(360,20),
-            //        new Point(340,0)
-            //};
-            //LaneCollections[8] = new Point[]{
-            //   new Point(340,600),
-            //        new Point(300,540),
-            //        new Point(300,400),
-            //        new Point(260,280),
-            //        new Point(200,240),
-            //        new Point(20,240),
-            //        new Point(0,260)
-            //};
-            //LaneCollections[9] = new Point[]{
-            //     new Point(0,340),
-            //        new Point(60,360),
-            //        new Point(200,360),
-            //        new Point(230,370),
-            //        new Point(240,400),
-            //        new Point(240,580),
-            //        new Point(260,600)
-            //};
-            //LaneCollections[10] = new Point[]{
-            //    new Point(0,340),
-            //        new Point(60,300),
-            //        new Point(200,300),
-            //        new Point(400,360),
-            //        new Point(580,360),
-            //        new Point(600,340)
-            //};
-            //LaneCollections[11] = new Point[]{
-            //     new Point(0,340),
-            //        new Point(60,300),
-            //        new Point(200,300),
-            //        new Point(320,260),
-            //        new Point(360,200),
-            //        new Point(360,20),
-            //        new Point(340,0)
-            //};
-            
+            CrossingLane = new List<Lane>();
 
-            //Lanes.Add(new Lane(EnumDirection.North, 5, col, row, LaneCollections[0], 0));
-            //Lanes.Add(new Lane(EnumDirection.North, 5, col, row, LaneCollections[1],1));
-            //Lanes.Add(new Lane(EnumDirection.North, 5, col, row, LaneCollections[2], 1));
-            //Lanes.Add(new Lane(EnumDirection.East, 5, col, row, LaneCollections[3], 2));
-            //Lanes.Add(new Lane(EnumDirection.East, 5, col, row, LaneCollections[4], 3));
-            //Lanes.Add(new Lane(EnumDirection.East, 5, col, row, LaneCollections[5], 3));
-            //Lanes.Add(new Lane(EnumDirection.South, 5, col, row, LaneCollections[6], 4));
-            //Lanes.Add(new Lane(EnumDirection.South, 5, col, row, LaneCollections[7], 5));
-            //Lanes.Add(new Lane(EnumDirection.South, 5, col, row, LaneCollections[8], 5));
-            //Lanes.Add(new Lane(EnumDirection.West, 5, col, row, LaneCollections[9], 6));
-            //Lanes.Add(new Lane(EnumDirection.West, 5, col, row, LaneCollections[10], 7));
-            //Lanes.Add(new Lane(EnumDirection.West, 5, col, row, LaneCollections[11], 7));
-            #endregion
-
+            this.GenerateLanes();
             this.GenerateCases();
             this.GenerateTrafficLight();
 
         }
 
         // --------------------------- Methods ---------------------------
+
+        public void GenerateLanes()
+        {
+            #region North
+            // N1 to W3
+            LaneCollections[0] = new Point[]{
+                new Point(80, 0),
+                new Point(80, 66),
+                new Point(75, 76),
+                new Point(62, 76),
+                new Point(14, 76),
+                new Point(0, 76),
+            };
+            // N2 to S3
+            LaneCollections[1] = new Point[]{
+                new Point(80, 0),
+                new Point(80, 66),
+                new Point(75, 76),
+                new Point(62, 76),
+                new Point(14, 76),
+                new Point(0, 76),
+            };
+            // N2 to E3
+            LaneCollections[2] = new Point[]{
+                new Point(80, 0),
+                new Point(80, 66),
+                new Point(75, 76),
+                new Point(62, 76),
+                new Point(14, 76),
+                new Point(0, 76),
+            };
+            #endregion
+
+            #region East
+            // E1 to N3
+            LaneCollections[3] = new Point[]{
+                new Point(80, 0),
+                new Point(80, 66),
+                new Point(75, 76),
+                new Point(62, 76),
+                new Point(14, 76),
+                new Point(0, 76),
+            };
+            // E1 to W3
+            LaneCollections[4] = new Point[]{
+                new Point(80, 0),
+                new Point(80, 66),
+                new Point(75, 76),
+                new Point(62, 76),
+                new Point(14, 76),
+                new Point(0, 76),
+            };
+            // E2 to S3
+            LaneCollections[5] = new Point[]{
+                new Point(80, 0),
+                new Point(80, 66),
+                new Point(75, 76),
+                new Point(62, 76),
+                new Point(14, 76),
+                new Point(0, 76),
+            };
+            #endregion
+
+            #region South
+
+            // S1 to E3
+            LaneCollections[6] = new Point[]{
+                new Point(80, 0),
+                new Point(80, 66),
+                new Point(75, 76),
+                new Point(62, 76),
+                new Point(14, 76),
+                new Point(0, 76),
+            };
+            // S2 to N3
+            LaneCollections[7] = new Point[]{
+                new Point(80, 0),
+                new Point(80, 66),
+                new Point(75, 76),
+                new Point(62, 76),
+                new Point(14, 76),
+                new Point(0, 76),
+            };
+            // S2 to W3
+            LaneCollections[8] = new Point[]{
+                new Point(80, 0),
+                new Point(80, 66),
+                new Point(75, 76),
+                new Point(62, 76),
+                new Point(14, 76),
+                new Point(0, 76),
+            };
+            #endregion
+
+            #region West
+            // W1 to S3
+            LaneCollections[9] = new Point[]{
+                new Point(80, 0),
+                new Point(80, 66),
+                new Point(75, 76),
+                new Point(62, 76),
+                new Point(14, 76),
+                new Point(0, 76),
+            };
+            // W2 to E3
+            LaneCollections[10] = new Point[]{
+                new Point(80, 0),
+                new Point(80, 66),
+                new Point(75, 76),
+                new Point(62, 76),
+                new Point(14, 76),
+                new Point(0, 76),
+            };
+            // W2 to N3
+            LaneCollections[11] = new Point[]{
+                new Point(80, 0),
+                new Point(80, 66),
+                new Point(75, 76),
+                new Point(62, 76),
+                new Point(14, 76),
+                new Point(0, 76),
+            };
+            #endregion
+
+            // Car lanes
+            CrossingLane.Add(new Lane(EnumDirection.North, LaneCollections[0], 0));
+            CrossingLane.Add(new Lane(EnumDirection.North, LaneCollections[1], 1));
+            CrossingLane.Add(new Lane(EnumDirection.North, LaneCollections[2], 1));
+
+            CrossingLane.Add(new Lane(EnumDirection.East, LaneCollections[3], 2));
+            CrossingLane.Add(new Lane(EnumDirection.East, LaneCollections[4], 3));
+            CrossingLane.Add(new Lane(EnumDirection.East, LaneCollections[5], 3));
+
+            CrossingLane.Add(new Lane(EnumDirection.South, LaneCollections[6], 4));
+            CrossingLane.Add(new Lane(EnumDirection.South, LaneCollections[7], 5));
+            CrossingLane.Add(new Lane(EnumDirection.South, LaneCollections[8], 5));
+
+            CrossingLane.Add(new Lane(EnumDirection.West, LaneCollections[9], 6));
+            CrossingLane.Add(new Lane(EnumDirection.West, LaneCollections[10], 7));
+            CrossingLane.Add(new Lane(EnumDirection.West, LaneCollections[11], 7));
+        }
 
         public void GenerateCases()
         {

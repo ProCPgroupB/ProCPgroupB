@@ -18,8 +18,6 @@ namespace TrafficLights
     public class Pedestrian
     {
         // -------------------------- Attributes --------------------------
-        public bool IsMoving { get; set; }
-
         private static int PedestrianWidth = 4;
         private static int PedestrianHeight = 4;
 
@@ -88,7 +86,6 @@ namespace TrafficLights
             this.pedestrianObject.Height = PedestrianHeight;
             this.pedestrianObject.Width = PedestrianWidth;
 
-            this.IsMoving = false;
         }
 
         // --------------------------- Methods ---------------------------
@@ -102,8 +99,6 @@ namespace TrafficLights
         public void SetPosition(PointF loc)
         {
             this.PedestrianCoordinates = loc;
-
-          
         }
 
         public RectangleF GetPedestrianObject()

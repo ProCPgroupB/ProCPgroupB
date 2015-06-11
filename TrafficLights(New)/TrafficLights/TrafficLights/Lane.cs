@@ -34,6 +34,13 @@ namespace TrafficLights
             set { lanePedestrians = value; }
         }
 
+        private List<Car> laneCars;
+        public List<Car> LaneCars
+        {
+            get { return laneCars; }
+            set { laneCars = value; }
+        }
+
         /// <summary>
         /// the capacity of cars/pedestrian of the lane
         /// </summary>
@@ -73,6 +80,7 @@ namespace TrafficLights
             this.lines = lines;
             this.trafficLightIndex = trafficLightID;
 
+            this.laneCars = new List<Car>();
             this.lanePedestrians = new List<Pedestrian>();
         }
         // --------------------------- Methods ---------------------------
@@ -83,14 +91,12 @@ namespace TrafficLights
         /// </summary>
         /// <param name="c"></param>
         /// <param name="lane_ID"></param>
-        public void AddCarToLane(string c, int indexLane, int top, int left)
+        public void AddCarToLane(Car c, int indexLane)
         {
-            //c.X = line[0].X;
-            //c.Y = line[0].Y;
-            //c.LineIndex = 1;
-            //c.IndexPath = indexLane;
-
-            //ListCar.Add(c);
+            c.TotalDots = this.Lines.Count();
+            c.NextDots = 1;
+            c.CarCoordinates = new PointF(this.Lines[0].X, this.Lines[0].Y);
+            laneCars.Add(c);
         }
 
         /// <summary>

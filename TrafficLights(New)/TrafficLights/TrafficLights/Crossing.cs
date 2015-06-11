@@ -23,7 +23,6 @@ namespace TrafficLights
             set { trafficLightsList = value; }
         }
 
-        private List<Lane> crossingLane;
         public List<Lane> CrossingLane;
 
         /// <summary>
@@ -85,6 +84,11 @@ namespace TrafficLights
             set;
         }
 
+        public int NorthCars { get; set; }
+        public int EastCars { get; set; }
+        public int SouthCars { get; set; }
+        public int WestCars { get; set; }
+
         // ------------------------- Constructor -------------------------
 
         /// <summary>
@@ -100,9 +104,13 @@ namespace TrafficLights
             this.CurrentCase = EnumCase.caseAGreen;
             this.isSource = checkSource(row, col);
             this.CaseDurations = new int[(int)EnumCase.caseDYellow + 1];
-            //this.crossingLane = new List<Lane>();
-
+            
             tempCaseDuration = 0;
+
+            NorthCars = 5;
+            EastCars = 5;
+            SouthCars = 5;
+            WestCars = 5;
         }
 
         // --------------------------- Methods ---------------------------
@@ -141,9 +149,41 @@ namespace TrafficLights
         /// </summary>
         /// <param name="direction">Crossing direction</param>
         /// <param name="c">Car object</param>
-        public void AddCar(EnumDirection direction, string c)
+        public bool AddCarToLane(EnumDirection direction, Car c)
         {
+            bool carOk = true;
+            List<Lane> temp = GetLanes(direction);
+            foreach (Lane l in temp)
+            {
+                if (l.LaneCars.Count() > 0)
+                {
+                    RectangleF lastCar = l.LaneCars.Last().GetCarObject();
 
+                    float x = l.Lines[0].X - lastCar.Width / 2;
+                    float y = l.Lines[0].Y - lastCar.Height / 2;
+
+                    RectangleF newCar = new RectangleF(x,y,lastCar.Width, lastCar.Height);
+
+                    if (lastCar.IntersectsWith(newCar))
+                    {
+                        carOk = false;
+                        return false;
+                    }
+                }
+            }
+            Random r = new Random();
+
+            int laneNr = r.Next(1, 5);
+
+            if (carOk)
+            {
+                foreach (Lane l2 in temp)
+                {
+                    l2.AddCarToLane(c, CrossingLane.IndexOf(l2));
+                    return true;
+                }
+            }
+            return false;
         }
 
         /// <summary>
@@ -211,6 +251,21 @@ namespace TrafficLights
         
         }
 
+        public List<Lane> GetLanes(EnumDirection dir)
+        {
+            int i = 0;
+            List<Lane> temp = new List<Lane>();
+            foreach (Lane l in CrossingLane)
+            {
+                if (l.Direction == dir)
+                {
+                    temp.Add(l);
+                    i++;
+                    if (i == 3) break;
+                }
+            }
+            return temp;
+        }
         
         /// <summary>
         /// Add pedestrian object to the Crossing
@@ -230,6 +285,16 @@ namespace TrafficLights
         public virtual TrafficLight[] GetState()
         {
             return null; 
+        }
+
+        public List<Lane> GetPedestrianLanes()
+        {
+            List<Lane> temp = new List<Lane>();
+            for (int i = 12; i < CrossingLane.Count; i++)
+            {
+                temp.Add(CrossingLane[i]);
+            }
+            return temp;
         }
     }
 }

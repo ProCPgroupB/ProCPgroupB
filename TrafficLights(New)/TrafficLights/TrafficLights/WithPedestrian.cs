@@ -98,38 +98,58 @@ namespace TrafficLights
                 new Point(178, 97),
                 new Point(133, 97),
                 new Point(93, 112),
-                new Point(82, 133),
-                new Point(133, 600),
+                new Point(80, 133),
+                new Point(80, 200),
             };
             #endregion
 
             #region South
             // S1 to E3 - 6 point
             LaneCollections[6] = new Point[]{
-
+                new Point(113, 200),
+                new Point(113, 133),
+                new Point(120, 120),
+                new Point(134, 120),
+                new Point(200, 120),
             };
             // S1 to N2 - 2 point
             LaneCollections[7] = new Point[]{
-
+                new Point(113, 200),
+                new Point(113, 0),
             };
             // S1 to W3 - 6 point
             LaneCollections[8] = new Point[]{
-
+                new Point(113, 200),
+                new Point(113, 133),
+                new Point(98, 98),
+                new Point(83, 87),
+                new Point(60, 76),
+                new Point(0, 76),
             };
             #endregion
 
             #region West
             // W1 to S2 - 6 point
             LaneCollections[9] = new Point[]{
-
+                new Point(0, 120),
+                new Point(60, 120),
+                new Point(75, 124),
+                new Point(80, 138),
+                new Point(80, 200),
             };
             // W1 to E3 - 4 point
             LaneCollections[10] = new Point[]{
-
+                new Point(0, 120),
+                new Point(200, 120),
             };
-            // W2 to S2 - 6 point
+            // W2 to N2 - 6 point
             LaneCollections[11] = new Point[]{
-
+                new Point(0, 120),
+                new Point(20, 98),
+                new Point(58, 98),
+                new Point(98, 88),
+                new Point(113, 62),
+                new Point(113, 0),
             };
             #endregion
 
@@ -174,6 +194,21 @@ namespace TrafficLights
             // Add to crossing lane
 
             // Car lanes
+            CrossingLane.Add(new Lane(EnumDirection.North, LaneCollections[0], 0));
+            CrossingLane.Add(new Lane(EnumDirection.North, LaneCollections[1], 0));
+            CrossingLane.Add(new Lane(EnumDirection.North, LaneCollections[2], 0));
+
+            CrossingLane.Add(new Lane(EnumDirection.East, LaneCollections[3], 1));
+            CrossingLane.Add(new Lane(EnumDirection.East, LaneCollections[4], 1));
+            CrossingLane.Add(new Lane(EnumDirection.East, LaneCollections[5], 2));
+
+            CrossingLane.Add(new Lane(EnumDirection.South, LaneCollections[6], 3));
+            CrossingLane.Add(new Lane(EnumDirection.South, LaneCollections[7], 3));
+            CrossingLane.Add(new Lane(EnumDirection.South, LaneCollections[8], 3));
+
+            CrossingLane.Add(new Lane(EnumDirection.West, LaneCollections[9], 4));
+            CrossingLane.Add(new Lane(EnumDirection.West, LaneCollections[10], 5));
+            CrossingLane.Add(new Lane(EnumDirection.West, LaneCollections[11], 6));
 
             // Pedestrian Lanes
             CrossingLane.Add(new Lane(EnumDirection.North, LaneCollections[12], 6));
@@ -325,11 +360,6 @@ namespace TrafficLights
             return TrafficLightsList;
         }
 
-        /// <summary>
-        /// add a new pedestrian to the crossing based on the lane position in the crossing
-        /// </summary>
-        /// <param name="p"></param>
-        /// <param name="indexLane "></param>
-
+       
     }
 }
