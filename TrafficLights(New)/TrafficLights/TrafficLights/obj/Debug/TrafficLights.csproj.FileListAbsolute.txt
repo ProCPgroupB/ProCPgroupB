@@ -8,3 +8,6 @@ D:\School\Block 8\PROCP\Final\TrafficLights\TrafficLights\obj\Debug\TrafficLight
 D:\School\Block 8\PROCP\Final\TrafficLights\TrafficLights\obj\Debug\TrafficLights.exe
 D:\School\Block 8\PROCP\Final\TrafficLights\TrafficLights\obj\Debug\TrafficLights.pdb
 D:\School\Block 8\PROCP\Final\TrafficLights\TrafficLights\obj\Debug\TrafficLights.ZoomForm.resources
+C:\Users\Raditya\Documents\GitHub\ProCPgroupB\TrafficLights(New)\TrafficLights\TrafficLights\bin\Debug\TrafficLights.exe.config
+C:\Users\Raditya\Documents\GitHub\ProCPgroupB\TrafficLights(New)\TrafficLights\TrafficLights\obj\Debug\TrafficLights.exe
+C:\Users\Raditya\Documents\GitHub\ProCPgroupB\TrafficLights(New)\TrafficLights\TrafficLights\obj\Debug\TrafficLights.pdb
