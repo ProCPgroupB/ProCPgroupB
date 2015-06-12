@@ -8,3 +8,13 @@ D:\School\Block 8\PROCP\Final\TrafficLights\TrafficLights\obj\Debug\TrafficLight
 D:\School\Block 8\PROCP\Final\TrafficLights\TrafficLights\obj\Debug\TrafficLights.exe
 D:\School\Block 8\PROCP\Final\TrafficLights\TrafficLights\obj\Debug\TrafficLights.pdb
 D:\School\Block 8\PROCP\Final\TrafficLights\TrafficLights\obj\Debug\TrafficLights.ZoomForm.resources
+C:\Study\ProCP\ProCPgroupB\ProCPgroupB\ProCPgroupB\TrafficLights(New)\TrafficLights\TrafficLights\bin\Debug\TrafficLights.exe.config
+C:\Study\ProCP\ProCPgroupB\ProCPgroupB\ProCPgroupB\TrafficLights(New)\TrafficLights\TrafficLights\obj\Debug\TrafficLights.exe
+C:\Study\ProCP\ProCPgroupB\ProCPgroupB\ProCPgroupB\TrafficLights(New)\TrafficLights\TrafficLights\obj\Debug\TrafficLights.pdb
+C:\Study\ProCP\ProCPgroupB\ProCPgroupB\ProCPgroupB\TrafficLights(New)\TrafficLights\TrafficLights\bin\Debug\TrafficLights.exe
+C:\Study\ProCP\ProCPgroupB\ProCPgroupB\ProCPgroupB\TrafficLights(New)\TrafficLights\TrafficLights\bin\Debug\TrafficLights.pdb
+C:\Study\ProCP\ProCPgroupB\ProCPgroupB\ProCPgroupB\TrafficLights(New)\TrafficLights\TrafficLights\obj\Debug\TrafficLights.csprojResolveAssemblyReference.cache
+C:\Study\ProCP\ProCPgroupB\ProCPgroupB\ProCPgroupB\TrafficLights(New)\TrafficLights\TrafficLights\obj\Debug\TrafficLights.MainForm.resources
+C:\Study\ProCP\ProCPgroupB\ProCPgroupB\ProCPgroupB\TrafficLights(New)\TrafficLights\TrafficLights\obj\Debug\TrafficLights.Properties.Resources.resources
+C:\Study\ProCP\ProCPgroupB\ProCPgroupB\ProCPgroupB\TrafficLights(New)\TrafficLights\TrafficLights\obj\Debug\TrafficLights.ZoomForm.resources
+C:\Study\ProCP\ProCPgroupB\ProCPgroupB\ProCPgroupB\TrafficLights(New)\TrafficLights\TrafficLights\obj\Debug\TrafficLights.csproj.GenerateResource.Cache

@@ -260,6 +260,7 @@
             this.C5.DragLeave += new System.EventHandler(this.C5_DragLeave);
             this.C5.Paint += new System.Windows.Forms.PaintEventHandler(this.C5_Paint);
             this.C5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.C5_MouseClick);
+            this.C5.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.C5_MouseDoubleClick);
             // 
             // C4
             // 
@@ -276,6 +277,7 @@
             this.C4.DragLeave += new System.EventHandler(this.C4_DragLeave);
             this.C4.Paint += new System.Windows.Forms.PaintEventHandler(this.C4_Paint);
             this.C4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.C4_MouseClick);
+            this.C4.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.C4_MouseDoubleClick);
             // 
             // C3
             // 
@@ -292,6 +294,7 @@
             this.C3.DragLeave += new System.EventHandler(this.C3_DragLeave);
             this.C3.Paint += new System.Windows.Forms.PaintEventHandler(this.C3_Paint);
             this.C3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.C3_MouseClick);
+            this.C3.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.C3_MouseDoubleClick);
             // 
             // C2
             // 
@@ -308,6 +311,7 @@
             this.C2.DragLeave += new System.EventHandler(this.C2_DragLeave);
             this.C2.Paint += new System.Windows.Forms.PaintEventHandler(this.C2_Paint);
             this.C2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.C2_MouseClick);
+            this.C2.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.C2_MouseDoubleClick);
             // 
             // C1
             // 
@@ -324,6 +328,7 @@
             this.C1.DragLeave += new System.EventHandler(this.C1_DragLeave);
             this.C1.Paint += new System.Windows.Forms.PaintEventHandler(this.C1_Paint);
             this.C1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.C1_MouseClick);
+            this.C1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.C1_MouseDoubleClick);
             // 
             // B5
             // 
@@ -340,6 +345,7 @@
             this.B5.DragLeave += new System.EventHandler(this.B5_DragLeave);
             this.B5.Paint += new System.Windows.Forms.PaintEventHandler(this.B5_Paint);
             this.B5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.B5_MouseClick);
+            this.B5.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.B5_MouseDoubleClick);
             // 
             // B4
             // 
@@ -356,6 +362,7 @@
             this.B4.DragLeave += new System.EventHandler(this.B4_DragLeave);
             this.B4.Paint += new System.Windows.Forms.PaintEventHandler(this.B4_Paint);
             this.B4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.B4_MouseClick);
+            this.B4.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.B4_MouseDoubleClick);
             // 
             // B3
             // 
@@ -372,6 +379,7 @@
             this.B3.DragLeave += new System.EventHandler(this.B3_DragLeave);
             this.B3.Paint += new System.Windows.Forms.PaintEventHandler(this.B3_Paint);
             this.B3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.B3_MouseClick);
+            this.B3.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.B3_MouseDoubleClick);
             // 
             // B2
             // 
@@ -388,6 +396,7 @@
             this.B2.DragLeave += new System.EventHandler(this.B2_DragLeave);
             this.B2.Paint += new System.Windows.Forms.PaintEventHandler(this.B2_Paint);
             this.B2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.B2_MouseClick);
+            this.B2.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.B2_MouseDoubleClick);
             // 
             // B1
             // 
@@ -404,6 +413,7 @@
             this.B1.DragLeave += new System.EventHandler(this.B1_DragLeave);
             this.B1.Paint += new System.Windows.Forms.PaintEventHandler(this.B1_Paint);
             this.B1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.B1_MouseClick);
+            this.B1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.B1_MouseDoubleClick);
             // 
             // A5
             // 
@@ -420,6 +430,7 @@
             this.A5.DragLeave += new System.EventHandler(this.A5_DragLeave);
             this.A5.Paint += new System.Windows.Forms.PaintEventHandler(this.A5_Paint);
             this.A5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.A5_MouseClick);
+            this.A5.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.A5_MouseDoubleClick);
             // 
             // A4
             // 
@@ -436,6 +447,7 @@
             this.A4.DragLeave += new System.EventHandler(this.A4_DragLeave);
             this.A4.Paint += new System.Windows.Forms.PaintEventHandler(this.A4_Paint);
             this.A4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.A4_MouseClick);
+            this.A4.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.A4_MouseDoubleClick);
             // 
             // A3
             // 
@@ -452,6 +464,7 @@
             this.A3.DragLeave += new System.EventHandler(this.A3_DragLeave);
             this.A3.Paint += new System.Windows.Forms.PaintEventHandler(this.A3_Paint);
             this.A3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.A3_MouseClick);
+            this.A3.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.A3_MouseDoubleClick);
             // 
             // A2
             // 
@@ -468,6 +481,7 @@
             this.A2.DragLeave += new System.EventHandler(this.A2_DragLeave);
             this.A2.Paint += new System.Windows.Forms.PaintEventHandler(this.A2_Paint);
             this.A2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.A2_MouseClick);
+            this.A2.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.A2_MouseDoubleClick);
             // 
             // A1
             // 
@@ -484,6 +498,7 @@
             this.A1.DragLeave += new System.EventHandler(this.A1_DragLeave);
             this.A1.Paint += new System.Windows.Forms.PaintEventHandler(this.A1_Paint);
             this.A1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.A1_MouseClick);
+            this.A1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.A1_MouseDoubleClick);
             // 
             // timerTraffic
             // 

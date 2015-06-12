@@ -1206,6 +1206,10 @@ namespace TrafficLights
             {
                 e.Cancel = false;
             }
+            else if (box.ToString() == "Cancel")
+            {
+                e.Cancel = true;
+            }
         }
         private void MainForm_Resize(object sender, EventArgs e)
         {
@@ -1487,6 +1491,156 @@ namespace TrafficLights
             }
         }
         #endregion
+
+        private void A1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
+
+        private void A2_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
+
+        private void A3_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
+
+        private void A4_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
+
+        private void A5_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
+
+        private void B1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
+
+        private void B2_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
+
+        private void B3_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
+
+        private void B4_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
+
+        private void B5_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
+
+        private void C1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
+
+        private void C2_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
+
+        private void C3_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
+
+        private void C4_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
+
+        private void C5_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
 
         
 
