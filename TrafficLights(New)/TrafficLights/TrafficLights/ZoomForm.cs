@@ -42,7 +42,7 @@ namespace TrafficLights
 
 
         // -------------------------------------  Constructor -------------------------------------
-        public ZoomForm(Crossing c)
+        public ZoomForm(Crossing c, bool[] Connection)
         {
             InitializeComponent();
 
@@ -55,6 +55,14 @@ namespace TrafficLights
             string backgroundCode = "#34495e";
             this.BackColor = System.Drawing.ColorTranslator.FromHtml(backgroundCode);
             withPanel.BackColor = System.Drawing.ColorTranslator.FromHtml(backgroundCode);
+
+            loadData();
+
+            btnNorth.Visible = Connection[0];
+            btnEast.Visible = Connection[1];
+            btnSouth.Visible = Connection[2];
+            btnWest.Visible = Connection[3];
+
 
             if (crossingTemp.CrossingType == EnumSelectedCrossing.withoutPedestrian)
             {
@@ -71,7 +79,7 @@ namespace TrafficLights
 
             this.Text = title + id;
 
-            loadData();
+            
         }
 
         // -------------------------------------  Methods -------------------------------------
@@ -97,6 +105,13 @@ namespace TrafficLights
 
         private void loadData()
         {
+            carNorth = ((Crossing)crossingTemp).NorthCars;
+            carEast = ((Crossing)crossingTemp).EastCars;
+            carSouth = ((Crossing)crossingTemp).SouthCars;
+            carWest = ((Crossing)crossingTemp).WestCars;
+
+            
+
             if (crossingTemp.CrossingType == EnumSelectedCrossing.withPedestrian)
             {
                 // Pedestrian number
@@ -156,6 +171,8 @@ namespace TrafficLights
 
             }
         }
+
+
 
         private void ResetPanel()
         {
@@ -339,6 +356,12 @@ namespace TrafficLights
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+
+            ((Crossing)crossingTemp).NorthCars = carNorth;
+            ((Crossing)crossingTemp).SouthCars = carSouth;
+            ((Crossing)crossingTemp).WestCars = carWest;
+            ((Crossing)crossingTemp).EastCars = carEast;
+
             if (crossingTemp.CrossingType == EnumSelectedCrossing.withPedestrian)
             {
                 // Traffic Time
@@ -353,6 +376,8 @@ namespace TrafficLights
                 ((WithPedestrian)crossingTemp).p3Capacity = pedSouth;
                 ((WithPedestrian)crossingTemp).p4Capacity = pedSouth;
             }
+
+            MessageBox.Show("Saved!");
         }
     }
 }

@@ -184,10 +184,10 @@
             this.cbCar.FormattingEnabled = true;
             this.cbCar.ItemHeight = 16;
             this.cbCar.Items.AddRange(new object[] {
+            "0",
             "5",
             "10",
-            "15",
-            "20"});
+            "15"});
             this.cbCar.Location = new System.Drawing.Point(17, 114);
             this.cbCar.Name = "cbCar";
             this.cbCar.Size = new System.Drawing.Size(242, 24);
@@ -240,6 +240,7 @@
             this.btnNorth.TabIndex = 2;
             this.btnNorth.Text = "North";
             this.btnNorth.UseVisualStyleBackColor = true;
+            this.btnNorth.Visible = false;
             this.btnNorth.Click += new System.EventHandler(this.btnNorth_Click);
             // 
             // btnSouth
@@ -250,6 +251,7 @@
             this.btnSouth.TabIndex = 3;
             this.btnSouth.Text = "South";
             this.btnSouth.UseVisualStyleBackColor = true;
+            this.btnSouth.Visible = false;
             this.btnSouth.Click += new System.EventHandler(this.btnSouth_Click);
             // 
             // btnEast
@@ -260,6 +262,7 @@
             this.btnEast.TabIndex = 4;
             this.btnEast.Text = "East";
             this.btnEast.UseVisualStyleBackColor = true;
+            this.btnEast.Visible = false;
             this.btnEast.Click += new System.EventHandler(this.btnEast_Click);
             // 
             // btnWest
@@ -270,6 +273,7 @@
             this.btnWest.TabIndex = 5;
             this.btnWest.Text = "West";
             this.btnWest.UseVisualStyleBackColor = true;
+            this.btnWest.Visible = false;
             this.btnWest.Click += new System.EventHandler(this.btnWest_Click);
             // 
             // ZoomForm
