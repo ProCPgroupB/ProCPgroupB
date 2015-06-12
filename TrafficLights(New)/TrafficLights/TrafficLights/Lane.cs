@@ -44,12 +44,7 @@ namespace TrafficLights
         /// <summary>
         /// the capacity of cars/pedestrian of the lane
         /// </summary>
-        private int laneCapacity;
-        public int LaneCapacity
-        {
-            get { return laneCapacity; }
-            set { laneCapacity = value; }
-        }
+        private int capacity;
 
         /// <summary>
         /// lane direction at the crossing
@@ -60,8 +55,6 @@ namespace TrafficLights
             get { return direction; }
             set { direction = value; }
         }
-
-        public bool isBlocked { get; set; }
 
         //------------------------Properties-------------------------------//
 
@@ -86,12 +79,9 @@ namespace TrafficLights
             this.direction = dir;
             this.lines = lines;
             this.trafficLightIndex = trafficLightID;
-            this.laneCapacity = 25;
 
             this.laneCars = new List<Car>();
             this.lanePedestrians = new List<Pedestrian>();
-
-            isBlocked = false;
         }
         // --------------------------- Methods ---------------------------
 
@@ -106,7 +96,6 @@ namespace TrafficLights
             c.TotalDots = this.Lines.Count();
             c.NextDots = 1;
             c.CarCoordinates = new PointF(this.Lines[0].X, this.Lines[0].Y);
-            c.LaneIndex = indexLane;
             laneCars.Add(c);
         }
 
@@ -129,10 +118,10 @@ namespace TrafficLights
         /// <param name="c"></param>
         /// <param name="pathID"></param>
         /// <returns></returns>
-        public bool RemoveCarFromLane(int id)
+        public bool RemoveCarFromLane(string c, int pathID)
         {
-            laneCars.RemoveAt(id);
-            return true;
+
+            return false;
         }
 
         /// <summary>

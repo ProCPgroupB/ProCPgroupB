@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
 
 namespace TrafficLights
 {
@@ -15,8 +18,8 @@ namespace TrafficLights
     public class Car
     {
         // -------------------------- Attributes --------------------------
-        public static int CarWidth = 4;
-        public static int CarHeight = 8;
+        public static int CarWidth = 8;
+        public static int CarHeight = 4;
 
         private int laneIndex;
         public int LaneIndex
@@ -60,8 +63,12 @@ namespace TrafficLights
             set { carObject = value; }
         }
 
-        //private Matrix rotateCar;
-        public Matrix RotateCar;
+        private Matrix rotateCar;
+        public Matrix RotateCar
+        {
+            get { return rotateCar; }
+            set { rotateCar = value; }
+        }
 
         // ------------------------- Constructor -------------------------
         /// <summary>
@@ -73,12 +80,12 @@ namespace TrafficLights
         /// <param name="stroke"></param>
         public Car(int laneId)
         {
-            //this.laneIndex = laneId;
+            this.laneIndex = laneId;
             this.CarColor = Brushes.DarkBlue;
             this.nextDots = 1;
-            this.carCoordinates = new PointF(150, 150);
+            this.carCoordinates = new PointF(0, 0);
 
-            RotateCar = new Matrix();
+            rotateCar = new Matrix();
 
             this.carObject.X = CarCoordinates.X;
             this.carObject.Y = CarCoordinates.Y;
@@ -99,7 +106,7 @@ namespace TrafficLights
         //}
         public RectangleF GetCarObject()
         {
-            RectangleF temp = new RectangleF(carCoordinates.X - CarHeight / 2, carCoordinates.Y - CarWidth / 2, CarHeight, CarWidth);
+            RectangleF temp = new RectangleF(carObject.X - CarHeight / 2, carObject.Y - CarWidth / 2, CarHeight, CarWidth);
             return temp;
         }
 

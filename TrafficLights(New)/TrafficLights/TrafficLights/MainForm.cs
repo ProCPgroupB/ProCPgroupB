@@ -45,9 +45,7 @@ namespace TrafficLights
             ApplyDrop();
             ApplyGrid();
 
-            SetDoubleBuffered(gridPanel);
-
-            timerTraffic.Interval = 50;
+            timerTraffic.Interval = 100;
         }
 
         // -------------------------------------  Methods  -------------------------------------
@@ -179,7 +177,7 @@ namespace TrafficLights
         // -------------------------------------  Editing Crossing  -------------------------------------
         private void EditCrossing(object o, Crossing c)
         {
-            ZoomForm zm = new ZoomForm(c, Sim.Control.GetConnection(new Point(c.CrossingPosition.X, c.CrossingPosition.Y)));
+            ZoomForm zm = new ZoomForm(c);
             zm.StartPosition = FormStartPosition.Manual;
             zm.Location = new Point(270, 70);
             zm.ShowDialog();
@@ -367,7 +365,6 @@ namespace TrafficLights
                 if (simStatus == "run")
                 {
                     drawLights(e, 0, 1);
-                    drawCars(e, 0, 1);
                     if (Sim.Control.GetCrossing(0, 1) is WithPedestrian)
                     {
                         drawPedestrians(e, 0, 1);
@@ -384,7 +381,6 @@ namespace TrafficLights
                 if (simStatus == "run")
                 {
                     drawLights(e, 0, 2);
-                    drawCars(e, 0, 2);
                     if (Sim.Control.GetCrossing(0, 2) is WithPedestrian)
                     {
                         drawPedestrians(e, 0, 2);
@@ -402,7 +398,6 @@ namespace TrafficLights
                 if (simStatus == "run")
                 {
                     drawLights(e, 0, 3);
-                    drawCars(e, 0, 3);
                     if (Sim.Control.GetCrossing(0, 3) is WithPedestrian)
                     {
                         drawPedestrians(e, 0, 3);
@@ -419,7 +414,6 @@ namespace TrafficLights
                 if (simStatus == "run")
                 {
                     drawLights(e, 0, 4);
-                    drawCars(e, 0, 4);
                     if (Sim.Control.GetCrossing(0, 4) is WithPedestrian)
                     {
                         drawPedestrians(e, 0, 4);
@@ -437,7 +431,6 @@ namespace TrafficLights
                 if (simStatus == "run")
                 {
                     drawLights(e, 1, 0);
-                    drawCars(e, 1, 0);
                     if (Sim.Control.GetCrossing(1, 0) is WithPedestrian)
                     {
                         drawPedestrians(e, 1, 0);
@@ -454,7 +447,6 @@ namespace TrafficLights
                 if (simStatus == "run")
                 {
                     drawLights(e, 1, 1);
-                    drawCars(e, 1, 1);
                     if (Sim.Control.GetCrossing(1, 1) is WithPedestrian)
                     {
                         drawPedestrians(e, 1, 1);
@@ -471,7 +463,6 @@ namespace TrafficLights
                 if (simStatus == "run")
                 {
                     drawLights(e, 1, 2);
-                    drawCars(e, 1, 2);
                     if (Sim.Control.GetCrossing(1, 2) is WithPedestrian)
                     {
                         drawPedestrians(e, 1, 2);
@@ -488,7 +479,6 @@ namespace TrafficLights
                 if (simStatus == "run")
                 {
                     drawLights(e, 1, 3);
-                    drawCars(e, 1, 3);
                     if (Sim.Control.GetCrossing(1, 3) is WithPedestrian)
                     {
                         drawPedestrians(e, 1, 3);
@@ -505,7 +495,6 @@ namespace TrafficLights
                 if (simStatus == "run")
                 {
                     drawLights(e, 1, 4);
-                    drawCars(e, 1, 4);
                     if (Sim.Control.GetCrossing(1, 4) is WithPedestrian)
                     {
                         drawPedestrians(e, 1, 4);
@@ -523,7 +512,6 @@ namespace TrafficLights
                 if (simStatus == "run")
                 {
                     drawLights(e, 2, 0);
-                    drawCars(e, 2, 0);
                     if (Sim.Control.GetCrossing(2, 0) is WithPedestrian)
                     {
                         drawPedestrians(e, 2, 0);
@@ -540,7 +528,6 @@ namespace TrafficLights
                 if (simStatus == "run")
                 {
                     drawLights(e, 2, 1);
-                    drawCars(e, 2, 1);
                     if (Sim.Control.GetCrossing(2, 1) is WithPedestrian)
                     {
                         drawPedestrians(e, 2, 1);
@@ -557,7 +544,6 @@ namespace TrafficLights
                 if (simStatus == "run")
                 {
                     drawLights(e, 2, 2);
-                    drawCars(e, 2, 0);
                     if (Sim.Control.GetCrossing(2, 2) is WithPedestrian)
                     {
                         drawPedestrians(e, 2, 2);
@@ -574,7 +560,6 @@ namespace TrafficLights
                 if (simStatus == "run")
                 {
                     drawLights(e, 2, 3);
-                    drawCars(e, 2, 3);
                     if (Sim.Control.GetCrossing(2, 3) is WithPedestrian)
                     {
                         drawPedestrians(e, 2, 3);
@@ -591,7 +576,6 @@ namespace TrafficLights
                 if (simStatus == "run")
                 {
                     drawLights(e, 2, 4);
-                    drawCars(e, 2, 4);
                     if (Sim.Control.GetCrossing(2, 4) is WithPedestrian)
                     {
                         drawPedestrians(e, 2, 4);
@@ -758,12 +742,12 @@ namespace TrafficLights
 
                         PointF specPoint = new PointF(c.GetCarObject().Left + (c.GetCarObject().Width / 2), c.GetCarObject().Top + (c.GetCarObject().Height / 2));
 
-                        c.RotateCar.RotateAt(angle, new PointF(c.GetCarObject().Left + (c.GetCarObject().Width / 2), c.GetCarObject().Top + (c.GetCarObject().Height / 2)));
+                        c.RotateCar.RotateAt(angle, specPoint);
 
                         p.Graphics.Transform = c.RotateCar;
 
                         PointF carLoc = c.GetCarObject().Location;
-                        RectangleF carShapes = new RectangleF(carLoc, new SizeF(c.GetCarObject().Width - 1, c.GetCarObject().Height));
+                        RectangleF carShapes = new RectangleF(carLoc, new SizeF(c.GetCarObject().Width - 1, c.GetCarObject().Height -1));
 
                         p.Graphics.FillRectangle(c.CarColor, Rectangle.Round(carShapes));
 
@@ -887,20 +871,14 @@ namespace TrafficLights
                     RectangleF nextObject = new RectangleF(nextCoordinates.X - 4, nextCoordinates.Y - 4, Car.CarWidth, Car.CarHeight);
 
                     // check if reach next Dot
-                    RectangleF nextDotObject = new RectangleF(l.Lines[tempCar.NextDots].X - 2, l.Lines[tempCar.NextDots].Y - 2, 4, 4);
+                    RectangleF nextDotObject = new RectangleF(l.Lines[tempCar.NextDots].X - 2, l.Lines[tempCar.NextDots].Y - 2, 8, 8);
 
                     if (tempCar.GetCarObject().IntersectsWith(nextDotObject))
                     {
                         tempCar.NextDots++;
-                        //Send to another crossroads
-                        if(tempCar.NextDots == tempCar.TotalDots && Sim.Control.toNextCrossing(tempCar, c)){
-                              l.RemoveCarFromLane(index);
-                              goto stopCar;
-                        }
-                        else if (tempCar.NextDots == tempCar.TotalDots)
+                        if (tempCar.NextDots == tempCar.TotalDots)
                         {
-                            //l.LanePedestrians.RemoveAt(index);
-                            tempCar.NextDots--;
+                            l.LanePedestrians.RemoveAt(index);
                             goto stopCar;
                         }
                         carOk = true;
@@ -920,80 +898,6 @@ namespace TrafficLights
                             goto stopCar;
                         }
                     }
-
-                    // check if intersact with another car
-                    foreach (Lane l2 in c.CrossingLane)
-                    {
-                        foreach (Car tempCar2 in l2.LaneCars)
-                        {
-                            if (tempCar != tempCar2 && tempCar2.GetCarObject().IntersectsWith(nextObject))
-                            {
-                                if (tempCar.LaneIndex == 1 && tempCar2.LaneIndex == 8)
-                                {
-                                    break;
-                                }
-                                else if (tempCar.LaneIndex == 7 && tempCar2.LaneIndex == 2)
-                                {
-                                    break;
-                                }
-                                else
-                                {
-                                    goto stopCar;
-                                }
-                            }
-                        }
-                    }
-
-                    if ((c.CurrentCase == EnumCase.caseAGreen || c.CurrentCase == EnumCase.caseAYellow) && c is WithPedestrian)
-                    {
-                        foreach (Car c2 in c.CrossingLane[0].LaneCars)
-                        {
-                            Rectangle r = new Rectangle(c.CrossingLane[2].Lines[1].X - 20, c.CrossingLane[2].Lines[1].Y - 30, 30, 60);
-                            if (c2.GetCarObject().IntersectsWith(r))
-                            {
-                                c.CrossingLane[8].isBlocked = true;
-                                break;
-                            }
-                        }
-                        foreach (Car c2 in c.CrossingLane[1].LaneCars)
-                        {
-                            Rectangle r = new Rectangle(c.CrossingLane[2].Lines[1].X - 20, c.CrossingLane[2].Lines[1].Y - 30, 30, 60);
-                            if (c2.GetCarObject().IntersectsWith(r))
-                            {
-                                c.CrossingLane[8].isBlocked = true;
-                                break;
-                            }
-                        }
-                        foreach (Car c2 in c.CrossingLane[6].LaneCars)
-                        {
-                            Rectangle r = new Rectangle(c.CrossingLane[8].Lines[1].X - 20, c.CrossingLane[2].Lines[1].Y - 30, 30, 60);
-                            if (c2.GetCarObject().IntersectsWith(r))
-                            {
-                                c.CrossingLane[2].isBlocked = true;
-                                break;
-                            }
-                        }
-                        foreach (Car c2 in c.CrossingLane[7].LaneCars)
-                        {
-                            Rectangle r = new Rectangle(c.CrossingLane[8].Lines[1].X - 20, c.CrossingLane[2].Lines[1].Y - 30, 30, 60);
-                            if (c2.GetCarObject().IntersectsWith(r))
-                            {
-                                c.CrossingLane[2].isBlocked = true;
-                                break;
-                            }
-                        }
-                    }
-
-                    if (c.CrossingLane[2].isBlocked)
-                    {
-                        foreach (Car c2 in c.CrossingLane[2].LaneCars)
-                        {
-                            //if(c2.GetCarObject().IntersectsWith(c.CrossingLane[2].LaneCars
-                        }
-                    }
-
-                    c.CrossingLane[2].isBlocked = false;
-                    c.CrossingLane[8].isBlocked = false;
 
                     if (carOk) tempCar.CarCoordinates = l.Lines[tempCar.NextDots - 1];
                     else tempCar.CarCoordinates = Sim.Control.MoveObject(tempCar.CarCoordinates, 4, angle); ;
@@ -1205,6 +1109,10 @@ namespace TrafficLights
             else if (box.ToString() == "No")
             {
                 e.Cancel = false;
+            }
+            else if (box.ToString() == "Cancel")
+            {
+                e.Cancel = true;
             }
         }
         private void MainForm_Resize(object sender, EventArgs e)
@@ -1488,7 +1396,161 @@ namespace TrafficLights
         }
         #endregion
 
-        
+        #region Double Click
+        private void A1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
+
+        private void A2_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
+
+        private void A3_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
+
+        private void A4_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
+
+        private void A5_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
+
+        private void B1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
+
+        private void B2_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
+
+        private void B3_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
+
+        private void B4_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
+
+        private void B5_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
+
+        private void C1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
+
+        private void C2_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
+
+        private void C3_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
+
+        private void C4_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
+
+        private void C5_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = gridPanel.GetCellPosition((Control)sender).Row;
+            int col = gridPanel.GetCellPosition((Control)sender).Column;
+
+            tempCrossing = Sim.Control.GetCrossing(row, col);
+            tempSender = sender;
+            editToolStripMenuItem_Click(sender, e);
+        }
+        #endregion
+
+
+
+
 
 
     }
