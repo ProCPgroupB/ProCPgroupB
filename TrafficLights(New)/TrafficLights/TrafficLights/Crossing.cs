@@ -89,6 +89,8 @@ namespace TrafficLights
         public int SouthCars { get; set; }
         public int WestCars { get; set; }
 
+        Random r = new Random();
+
         // ------------------------- Constructor -------------------------
 
         /// <summary>
@@ -107,10 +109,7 @@ namespace TrafficLights
             
             tempCaseDuration = 0;
 
-            NorthCars = 5;
-            EastCars = 5;
-            SouthCars = 5;
-            WestCars = 5;
+            generateCars();
         }
 
         // --------------------------- Methods ---------------------------
@@ -144,6 +143,54 @@ namespace TrafficLights
             return temp;
         }
 
+        public void generateCars()
+        {
+            NorthCars = 0;
+            EastCars = 0;
+            SouthCars = 0;
+            WestCars = 0;
+
+
+            switch (crossingPosition.X)
+            {
+                case 0:
+                    NorthCars = 5;
+                    switch (crossingPosition.Y)
+                    {
+                        case 0:
+                            WestCars = 5;
+                            break;
+                        case 4:
+                            EastCars = 5;
+                            break;
+                    }
+                    break;
+                case 1:
+                    switch (crossingPosition.Y)
+                    {
+                        case 0:
+                            WestCars = 5;
+                            break;
+                        case 4:
+                            EastCars = 5;
+                            break;
+                    }
+                    break;
+                case 2:
+                    SouthCars = 5;
+                    switch (crossingPosition.Y)
+                    {
+                        case 0:
+                            WestCars = 5;
+                            break;
+                        case 4:
+                            EastCars = 5;
+                            break;
+                    }
+                    break;
+            }
+        }
+
         /// <summary>
         /// add a new car to the crossing based on the lane direction
         /// </summary>
@@ -171,17 +218,31 @@ namespace TrafficLights
                     }
                 }
             }
-            Random r = new Random();
+           
 
-            int laneNr = r.Next(1, 5);
+            int laneNr = 0;
+            int indexof = 0;
+
+            laneNr = r.Next(0, 3);
+
+            if (direction == EnumDirection.East)
+            {
+                indexof = laneNr + 3;
+            }
+            else if (direction == EnumDirection.South)
+            {
+                indexof = laneNr +  6;
+            }
+            else if (direction == EnumDirection.West)
+            {
+                indexof = laneNr +  9;
+            }
+
 
             if (carOk)
             {
-                foreach (Lane l2 in temp)
-                {
-                    l2.AddCarToLane(c, CrossingLane.IndexOf(l2));
-                    return true;
-                }
+                temp[laneNr].AddCarToLane(c, indexof);
+                return true;
             }
             return false;
         }
@@ -285,16 +346,6 @@ namespace TrafficLights
         public virtual TrafficLight[] GetState()
         {
             return null; 
-        }
-
-        public List<Lane> GetPedestrianLanes()
-        {
-            List<Lane> temp = new List<Lane>();
-            for (int i = 12; i < CrossingLane.Count; i++)
-            {
-                temp.Add(CrossingLane[i]);
-            }
-            return temp;
         }
     }
 }

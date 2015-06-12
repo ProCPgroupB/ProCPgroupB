@@ -67,10 +67,8 @@ namespace TrafficLights
             LaneCollections[2] = new Point[]{
                 new Point(80, 0),
                 new Point(80, 66),
-                new Point(110, 110),
                 new Point(133, 119),
-                new Point(178, 119),
-                new Point(200, 76),
+                new Point(200, 119),
             };
             #endregion
 
@@ -132,14 +130,17 @@ namespace TrafficLights
             // W1 to S2 - 6 point
             LaneCollections[9] = new Point[]{
                 new Point(0, 120),
-                new Point(60, 120),
+                new Point(58, 120),
                 new Point(75, 124),
                 new Point(80, 138),
                 new Point(80, 200),
             };
-            // W1 to E3 - 4 point
+            // W2 to E3 - 4 point
             LaneCollections[10] = new Point[]{
-                new Point(0, 120),
+                new Point(0, 119),
+                new Point(20, 97),
+                new Point(58, 97),
+                new Point(130, 97),
                 new Point(200, 120),
             };
             // W2 to N2 - 6 point
@@ -176,14 +177,14 @@ namespace TrafficLights
                 new Point(0, 138),
                 new Point(40, 138),
                 new Point(57, 142),
-                new Point(138, 142),
-                new Point(138, 200),
+                new Point(145, 142),
+                new Point(145, 200),
             };
             // P4 to P3
             LaneCollections[15] = new Point[]{
                 new Point(175, 173),
-                new Point(138, 173),
-                new Point(138, 142),
+                new Point(145, 173),
+                new Point(145, 142),
                 new Point(57, 142),
                 new Point(40, 138),
                 new Point(0, 138),
@@ -208,7 +209,7 @@ namespace TrafficLights
 
             CrossingLane.Add(new Lane(EnumDirection.West, LaneCollections[9], 4));
             CrossingLane.Add(new Lane(EnumDirection.West, LaneCollections[10], 5));
-            CrossingLane.Add(new Lane(EnumDirection.West, LaneCollections[11], 6));
+            CrossingLane.Add(new Lane(EnumDirection.West, LaneCollections[11], 5));
 
             // Pedestrian Lanes
             CrossingLane.Add(new Lane(EnumDirection.North, LaneCollections[12], 6));
@@ -249,37 +250,37 @@ namespace TrafficLights
             TrafficLightsList[0].GreenPos = new Point(76, 64);
             TrafficLightsList[0].YellowPos = new Point(81, 64);
             TrafficLightsList[0].RedPos = new Point(87, 64);
-            TrafficLightsList[0].ShowTrafficLight = new Rectangle(new Point(73, 56), new Size(20, 5));
+            TrafficLightsList[0].ShowTrafficLight = new Rectangle(new Point(73, 43), new Size(20, 5));
 
             // East1
             TrafficLightsList[1].GreenPos = new Point(131, 70);
             TrafficLightsList[1].YellowPos = new Point(131, 75);
             TrafficLightsList[1].RedPos = new Point(131, 81);
-            TrafficLightsList[1].ShowTrafficLight = new Rectangle(new Point(139, 68), new Size(5, 20));
+            TrafficLightsList[1].ShowTrafficLight = new Rectangle(new Point(134, 68), new Size(5, 20));
 
             // East2
             TrafficLightsList[2].GreenPos = new Point(131, 92);
             TrafficLightsList[2].YellowPos = new Point(131, 97);
             TrafficLightsList[2].RedPos = new Point(131, 103);
-            TrafficLightsList[2].ShowTrafficLight = new Rectangle(new Point(139, 90), new Size(5, 20));
+            TrafficLightsList[2].ShowTrafficLight = new Rectangle(new Point(134, 90), new Size(5, 20));
 
             // South1
             TrafficLightsList[3].GreenPos = new Point(120, 131);
             TrafficLightsList[3].YellowPos = new Point(114, 131);
             TrafficLightsList[3].RedPos = new Point(109, 131);
-            TrafficLightsList[3].ShowTrafficLight = new Rectangle(new Point(106, 139), new Size(20, 5));
+            TrafficLightsList[3].ShowTrafficLight = new Rectangle(new Point(106, 151), new Size(20, 5));
 
             // West1
             TrafficLightsList[4].GreenPos = new Point(65, 125);
             TrafficLightsList[4].YellowPos = new Point(65, 120);
             TrafficLightsList[4].RedPos = new Point(65, 114);
-            TrafficLightsList[4].ShowTrafficLight = new Rectangle(new Point(56, 113), new Size(5, 20));
+            TrafficLightsList[4].ShowTrafficLight = new Rectangle(new Point(58, 113), new Size(5, 20));
 
             // West2
             TrafficLightsList[5].GreenPos = new Point(65, 103);
             TrafficLightsList[5].YellowPos = new Point(65, 98);
             TrafficLightsList[5].RedPos = new Point(65, 92);
-            TrafficLightsList[5].ShowTrafficLight = new Rectangle(new Point(56, 89), new Size(5, 20));
+            TrafficLightsList[5].ShowTrafficLight = new Rectangle(new Point(58, 92), new Size(5, 20));
 
             // P1
             TrafficLightsList[6].GreenPos = new Point(59, 64);
@@ -291,7 +292,7 @@ namespace TrafficLights
             TrafficLightsList[7].GreenPos = new Point(137, 39);
             TrafficLightsList[7].YellowPos = new Point(137, 39);
             TrafficLightsList[7].RedPos = new Point(131, 39);
-            TrafficLightsList[7].ShowTrafficLight = new Rectangle(new Point(136, 45), new Size(5, 15));
+            TrafficLightsList[7].ShowTrafficLight = new Rectangle(new Point(131, 42), new Size(5, 15));
 
             // P3
             TrafficLightsList[8].GreenPos = new Point(143, 131);

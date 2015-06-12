@@ -121,6 +121,32 @@ namespace TrafficLights
             set { crossingList = value; }
         }
 
+        public bool[] GetConnection(Point currentCrossing)
+        {
+            bool[] connections = new bool[] { false, false, false, false };
+            // top
+            if (GetCrossing(currentCrossing.X - 1, currentCrossing.Y) != null)
+            {
+                connections[0] = true;
+            }
+            // right
+            if (GetCrossing(currentCrossing.X, currentCrossing.Y + 1) != null)
+            {
+                connections[1] = true;
+            }
+            // down
+            if (GetCrossing(currentCrossing.X + 1, currentCrossing.Y) != null)
+            {
+                connections[2] = true;
+            }
+            // left
+            if (GetCrossing(currentCrossing.X, currentCrossing.Y - 1) != null)
+            {
+                connections[3] = true;
+            }
+            return connections;
+        }
+
         public float CalculateAngle(Point first, Point second)
         {
             float dX = second.X - first.X;
@@ -138,14 +164,31 @@ namespace TrafficLights
             return newPoint;
         }
 
+        public bool toNextCrossing(Car car, Crossing c)
+        {
+            // North
+            if (car.GetCarObject().Y - 10 < 0 && GetConnection(c.CrossingPosition)[(int)EnumDirection.North])
+            {
+                return GetCrossing(c.CrossingPosition.X - 1, c.CrossingPosition.Y).AddCarToLane(EnumDirection.South, new Car(0));
+            }
+            // East
+            else if (car.GetCarObject().X + 10 > 200 && GetConnection(c.CrossingPosition)[(int)EnumDirection.East])
+            {
+                return GetCrossing(c.CrossingPosition.X, c.CrossingPosition.Y + 1).AddCarToLane(EnumDirection.West, new Car(0));
+            }
+            // South
+            else if (car.GetCarObject().Y + 20 > 200 && GetConnection(c.CrossingPosition)[(int)EnumDirection.South])
+            {
+                return GetCrossing(c.CrossingPosition.X + 1, c.CrossingPosition.Y).AddCarToLane(EnumDirection.North, new Car(0));
+            }
+            // West
+            else if (car.GetCarObject().X - 10 < 0 && GetConnection(c.CrossingPosition)[(int)EnumDirection.West])
+            {
+                return GetCrossing(c.CrossingPosition.X, c.CrossingPosition.Y - 1).AddCarToLane(EnumDirection.East, new Car(0));
 
-        /// <summary>
-        /// Get crossing at defined position(point) at the grid
-        /// from the crossingList
-        /// </summary>
-        /// <param name="pos"></param>
-        /// <returns>Crossing Object</returns>
-        //public Crossing GetCrossing(Point pos) { return null; }
+            }
+            return true;
+        }
 
         /// <summary>
         /// will rotate the map
