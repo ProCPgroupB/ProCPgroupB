@@ -289,7 +289,7 @@ namespace TrafficLights
                     break;
                 case EnumCase.caseCYellow:
                     if(tempCaseDuration == CaseDurations[(int)EnumCase.caseCYellow]){
-                        if (this is WithPedestrian) CurrentCase = EnumCase.caseDGreen;
+                        if (this is WithoutPedestrian) CurrentCase = EnumCase.caseDGreen;
                         else CurrentCase = EnumCase.caseAGreen;
                         tempCaseDuration = 0;
                     }

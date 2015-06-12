@@ -47,7 +47,7 @@ namespace TrafficLights
 
             SetDoubleBuffered(gridPanel);
 
-            timerTraffic.Interval = 100;
+            timerTraffic.Interval = 50;
         }
 
         // -------------------------------------  Methods  -------------------------------------
