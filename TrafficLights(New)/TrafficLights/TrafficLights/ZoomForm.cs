@@ -58,10 +58,7 @@ namespace TrafficLights
 
             loadData();
 
-            btnNorth.Visible = Connection[0];
-            btnEast.Visible = Connection[1];
-            btnSouth.Visible = Connection[2];
-            btnWest.Visible = Connection[3];
+            if (carNorth > 0) { btnNorth.Visible = true; } if (carEast > 0) { btnEast.Visible = true; } if (carSouth > 0) { btnSouth.Visible = true; } if (carWest > 0) { btnWest.Visible = true; }
 
 
             if (crossingTemp.CrossingType == EnumSelectedCrossing.withoutPedestrian)
